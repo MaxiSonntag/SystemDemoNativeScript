@@ -1,0 +1,17 @@
+<ActionBar class="action-bar" id="action-bar" title="Networking">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem class="action-item" icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+</ActionBar>
+
+<GridLayout rows="auto, *" columns="*" class="page">
+    <GridLayout row="0" col="0" rows="*" columns="*,*,*">
+        <Button col="0" class="btn" text="Download" (tap)="downloadJson()" [isEnabled]="downloadButtonEnabled"></Button>
+        <Button col="1" class="btn" text="Parse" (tap)="parseJson()" [isEnabled]="parseButtonEnabled"></Button>
+        <Button col="2" class="btn" text="Post data" (tap)="postData()" [isEnabled]="postButtonEnabled"></Button>
+    </GridLayout>
+    <TextView row="1" col="0" #outputText class="outputText" [text]="getCurrentString()" editable="false">
+
+    </TextView>
+</GridLayout>

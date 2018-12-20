@@ -1,0 +1,39 @@
+<!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
+<RadSideDrawer [drawerTransition]="sideDrawerTransition">
+    <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer-center">
+        <StackLayout row="0" class="sidedrawer-header">
+            <!--<StackLayout class="sidedrawer-header-image">-->
+                    <Label class="fa sidedrawer-header-image header-icon" text="&#xf2bd;"></Label>
+            <!--</StackLayout>-->
+            
+            <Label class="sidedrawer-header-brand" text="User Name"></Label>
+        </StackLayout>
+    
+        <ScrollView row="1" class="sidedrawer-content">
+            <StackLayout>
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/network')" [class.active]="isComponentSelected('/network')" (tap)="onNavItemTap('/network')">
+                    <Label class="sidedrawer-list-item-icon fa" col="0" text="&#xf6ff;"></Label>
+                    <Label class="sidedrawer-list-item-text" col="1" text="Networking"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/localNotification')" [class.active]="isComponentSelected('/localNotification')" (tap)="onNavItemTap('/localNotification')">
+                    <Label class="sidedrawer-list-item-icon fa" col="0" text="&#xf0f3;"></Label>
+                    <Label class="sidedrawer-list-item-text" col="1" text="Local notifications"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/pushNotification')" [class.active]="isComponentSelected('/pushNotification')" (tap)="onNavItemTap('/pushNotification')">
+                    <Label class="sidedrawer-list-item-icon fa" col="0" text="&#xf0f3;"></Label>
+                    <Label class="sidedrawer-list-item-text" col="1" text="Push notifications"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/files')" [class.active]="isComponentSelected('/files')" (tap)="onNavItemTap('/files')">
+                    <Label class="sidedrawer-list-item-icon fa" col="0" text="&#xf15b;"></Label>
+                    <Label class="sidedrawer-list-item-text" col="1" text="Files"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/cloud')" [class.active]="isComponentSelected('/cloud')" (tap)="onNavItemTap('/cloud')">
+                    <Label class="sidedrawer-list-item-icon fa" col="0" text="&#xf382;"></Label>
+                    <Label class="sidedrawer-list-item-text" col="1" text="Cloud sync"></Label>
+                </GridLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+
+    <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
+</RadSideDrawer>

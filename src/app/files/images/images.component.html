@@ -1,0 +1,13 @@
+<StackLayout class="page">
+        <GridLayout rows="auto" columns="*,*,*">
+            <button row="0" col="0" class="btn" text="Load" (tap)="loadFromFile(false)"></button>
+            <button row="0" col="1" class="btn" text="Write" (tap)="pickImage()"></button>
+            <button row="0" col="2" class="btn" text="Delete" (tap)="deleteFile()"></button>
+        </GridLayout>
+        <GridLayout class="m-8" rows="auto, *, auto, *" columns="*">
+            <label row="0" class="body" text="Picked image: (already saved, click 'Load' to refresh)"></label>
+            <Image row="1" [src]="pickedImage"></Image>
+            <label row="2" class="body" text="Saved image:"></label>
+            <Image row="3" [src]="savedImage"></Image>
+        </GridLayout>
+    </StackLayout>

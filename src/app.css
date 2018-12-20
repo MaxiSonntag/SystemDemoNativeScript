@@ -1,0 +1,46 @@
+/*
+In NativeScript, the app.css file is where you place CSS rules that
+you would like to apply to your entire application. Check out
+http://docs.nativescript.org/ui/styling for a full list of the CSS
+selectors and properties you can use to style UI components.
+
+/*
+In many cases you may want to use the NativeScript core theme instead
+of writing your own CSS rules. For a full list of class names in the theme
+refer to http://docs.nativescript.org/ui/theme.
+*/
+@import '~nativescript-theme-core/css/core.light.css';
+@import '~system_app_theme.css';
+
+.fa {
+    Font-family: Font Awesome 5 Free, fa-solid-900;
+}
+
+.sidedrawer-list-item-text{
+    border-width: 0;
+    border-color: transparent;
+}
+
+.header-icon{
+    font-size: 70;
+    text-align: center;
+}
+
+.sidedrawer-list-item.active {
+    color: #fff;
+    background-color: #6aa84f
+}
+
+.sidedrawer-list-item.active .sidedrawer-list-item-icon {
+    color: #fff
+}
+
+.sidedrawer-header {
+    background-color: #fafafa;
+    height: 148;
+    width: 100%
+}
+
+.sidedrawer-header-brand {
+    color: #737373
+}

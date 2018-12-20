@@ -1,0 +1,16 @@
+<ActionBar class="action-bar" id="action-bar" title="Files">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem class="action-item" icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+</ActionBar>
+<GridLayout rows="auto, *" columns="*" class="page m-8">
+    <GridLayout row="0" col="0" rows="*" columns="*, auto">
+        <TextField row="0" col="0" class="input" hint="Enter some text and upload it" #inputField></TextField>
+        <button row="0" col="1" class="btn" text="Upload" (tap)="uploadData()" #uploadButton></button>
+    </GridLayout>
+    <StackLayout row="1" col="0" class="output p-10">
+        <label class="body output-description" text="Cloud data:"></label>
+        <label class="body output-value" #outputLabel></label>
+    </StackLayout>
+</GridLayout>

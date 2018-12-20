@@ -1,0 +1,17 @@
+<ActionBar class="action-bar" id="action-bar" title="Push notifications">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem class="action-item" icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+</ActionBar>
+
+<ListView [items]="items" class="page list-group">
+    <ng-template let-item="item" let-index="index">
+        <StackLayout class="list-group-item">
+            <label class="h3 font-weight-bold" [text]="item.step+'. '+item.title"></label>
+            <label class="body" [text]="item.description" textWrap="true"></label>
+            <Image class="guide-image"[src]="item.imagePath" stretch="aspectFit"></Image>
+            <StackLayout class="hr-light m-8"></StackLayout>
+        </StackLayout>
+    </ng-template>
+</ListView>

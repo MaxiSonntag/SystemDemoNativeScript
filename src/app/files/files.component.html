@@ -1,0 +1,14 @@
+<ActionBar class="action-bar" id="action-bar" title="Files">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem class="action-item" icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+</ActionBar>
+<TabView class="tab-view">
+    <StackLayout *tabItem="{title: 'Text'}">
+        <TextTab encrypted="false"></TextTab>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Images'}">
+        <ImageTab></ImageTab>
+    </StackLayout>
+</TabView>

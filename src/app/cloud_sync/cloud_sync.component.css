@@ -1,0 +1,14 @@
+.output{
+    background-color: #e5e5e5;
+    margin-top: 16
+}
+
+.output-description{
+    font-weight: bold;
+    margin-bottom: 10;
+    color: gray;
+}
+
+.output-value{
+    color: gray;
+}
