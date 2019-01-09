@@ -1,0 +1,19 @@
+<ActionBar class="action-bar" id="action-bar" title="Contacts">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem class="action-item" icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+</ActionBar>
+
+<GridLayout class="page">
+    <ActivityIndicator row="0" col="0" busy="true" class="activity-indicator" [visibility]="indicatorVisibility"></ActivityIndicator>
+    <ListView row="0" col="0" [items]="contacts" (itemTap)="contactTapped($event)" class="list-group" [visibility]="indicatorVisibility=='visible' ? 'collapse' : 'visible'">
+    <ng-template let-contact="item">
+        <StackLayout class="list-group-item">
+            <Label [text]="contact.name.displayname" class="list-group-item-heading"></Label>
+            <Label [text]="contact.phoneNumbers[0].label + ': ' + contact.phoneNumbers[0].value" class="list-group-item-text"></Label>
+        </StackLayout>
+    </ng-template>
+</ListView>
+</GridLayout>
+

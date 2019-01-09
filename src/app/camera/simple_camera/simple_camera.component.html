@@ -1,0 +1,6 @@
+<GridLayout rows="*,auto" columns="*">
+    <Image row="0" col="0" [src]="image" class="img-rounded"></Image>
+    <GridLayout row="1" col="0" rows="*" columns="*,auto,*">
+        <Button row="0" col="1" (tap)="takePicture()" text="&#xf030;" class="btn btn-rounded-lg btn-active btn-outline fa"></Button>
+    </GridLayout>
+</GridLayout>

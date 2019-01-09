@@ -92,6 +92,9 @@ export class CloudSyncComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(){
-		this._listener()
+		if(isAndroid){
+			this._listener()
+		}
+		
 	}
 }

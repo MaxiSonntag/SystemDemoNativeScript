@@ -13,8 +13,13 @@ import { FilesComponent } from './files/files.component'
 import { TextComponent } from './files/text/text.component'
 import { ImagesComponent } from './files/images/images.component'
 import { CloudSyncComponent } from './cloud_sync/cloud_sync.component'
+import { CameraComponent } from './camera/camera.component'
+import { SimpleCameraComponent } from './camera/simple_camera/simple_camera.component'
+import { CameraScanComponent } from './camera/camera_scan/camera_scan.component'
+import { ContactsSmsComponent } from './contacts_sms/contacts_sms.component'
 
 import { HttpClientModule } from '@angular/common/http';
+import { BarcodeScanner } from 'nativescript-barcodescanner';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
  import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -42,8 +47,14 @@ import { HttpClientModule } from '@angular/common/http';
         TextComponent,
         ImagesComponent,
         CloudSyncComponent,
+        CameraComponent,
+        SimpleCameraComponent,
+        CameraScanComponent,
+        ContactsSmsComponent,
     ],
-    providers: [],
+    providers: [
+        BarcodeScanner
+    ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

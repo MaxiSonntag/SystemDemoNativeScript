@@ -1,0 +1,14 @@
+<ActionBar class="action-bar" id="action-bar" title="Camera">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem class="action-item" icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+</ActionBar>
+<TabView id="tabViewContainer" class="tab-view">
+    <StackLayout *tabItem="{title: 'Picture'}">
+        <SimpleCamera></SimpleCamera>>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Scan'}">
+        <CameraScan></CameraScan>
+    </StackLayout>
+</TabView>
