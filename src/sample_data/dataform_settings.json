@@ -1,0 +1,36 @@
+{
+    "isReadOnly": false,
+    "commitMode": "Immediate",
+    "validationMode": "Manual",
+    "propertyAnnotations":
+    [
+        {
+            "name": "firstName",
+            "displayName": "First name",
+            "index": 0,
+            "validators": [
+                { "name": "NonEmpty" }
+            ]
+        },
+        {
+            "name": "lastName",
+            "displayName": "Last name",
+            "index": 1,
+            "editor": "Text",
+            "validators": [
+                { "name": "NonEmpty" }
+            ]
+        },
+        {
+            "name": "number",
+            "displayName": "Phone number",
+            "index": 2,
+            "editor": "Number",
+            "validators": [
+                { "name": "NonEmpty" },
+                { "name": "Phone" },
+                { "name": "MaximumLength", "params": {"length": 10 } }
+            ]
+        }
+    ]
+}

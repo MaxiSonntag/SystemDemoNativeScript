@@ -1,0 +1,25 @@
+<ActionBar class="action-bar" id="action-bar" title="Add contact">
+    <NavigationButton ios:visibility="collapsed" icon="res://ic_back" (tap)="back()"></NavigationButton>
+    <NavigationButton android:visibility="collapsed" text="Contacts"></NavigationButton>
+    <ActionItem android:visibility="collapsed" class="action-item" ios.position="right" (tap)="save()" text="Save"></ActionItem>
+</ActionBar>
+<GridLayout rows="*, auto" class="page">
+    <RadDataForm row="0" tkExampleTitle [source]="contact" [metadata]="metadata">
+            <!--<TKEntityProperty tkDataFormProperty name="firstName" displayName="First name" index="1" [metadata]="metadata">
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                    <TKNonEmptyValidator tkEntityPropertyValidators></TKNonEmptyValidator>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="lastName" displayName="Last name" index="2">
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+                    <TKNonEmptyValidator tkEntityPropertyValidators></TKNonEmptyValidator>
+            </TKEntityProperty>
+            <TKEntityProperty tkDataFormProperty name="number" displayName="Number" index="3">
+                    <TKPropertyEditor tkEntityPropertyEditor type="Number"></TKPropertyEditor>
+                    <TKPhoneValidator tkEntityPropertyValidators></TKPhoneValidator>
+            </TKEntityProperty>-->
+    </RadDataForm>
+    <GridLayout row="1" rows="*" columns="auto,*">
+        <Button row="0" col="0" ios:colSpan="2" class="btn" (tap)="resetForm()" text="Reset"></Button>
+        <Button row="0" col="1" ios:visibility="collapsed" class="btn" (tap)="save()" text="Save"></Button>
+    </GridLayout>
+</GridLayout>

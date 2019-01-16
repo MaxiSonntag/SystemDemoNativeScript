@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
-import * as firebase from "nativescript-plugin-firebase";
 import { firestore } from 'nativescript-plugin-firebase';
 import { isAndroid } from 'platform'
 

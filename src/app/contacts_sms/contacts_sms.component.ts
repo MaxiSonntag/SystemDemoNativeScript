@@ -8,6 +8,9 @@ import { ListView } from 'ui/list-view'
 import { ActivityIndicator } from 'ui/activity-indicator'
 import * as phone from 'nativescript-phone'
 import { prompt, PromptResult, inputType, PromptOptions } from "tns-core-modules/ui/dialogs";
+import { registerElement } from 'nativescript-angular/element-registry';
+import { RouterExtensions } from 'nativescript-angular/router';
+registerElement('Fab', () => require('nativescript-floatingactionbutton').Fab);
 
 declare var android: any
 
@@ -24,7 +27,7 @@ export class ContactsSmsComponent implements OnInit {
 	indicatorVisibility: string = "visible"
 
 
-	constructor(private page: Page) { }
+	constructor(private page: Page, private routerExtensions: RouterExtensions) { }
 
 	ngOnInit() {
 		this.loadAllContacts()
@@ -39,7 +42,7 @@ export class ContactsSmsComponent implements OnInit {
 		let that = this
 		if (isAndroid) {
 
-			permissions.requestPermissions([android.Manifest.permission.READ_CONTACTS, android.Manifest.permission.WRITE_CONTACTS, android.Manifest.permission.GET_ACCOUNTS], "We need permissions to show you this feature.").then(
+			permissions.requestPermissions([android.Manifest.permission.READ_CONTACTS, android.Manifest.permission.GET_ACCOUNTS], "We need permissions to show you this feature.").then(
 				() => {
 					console.dir("Contact permissions granted")
 					let fields = ["name", "phoneNumbers"]
@@ -164,7 +167,9 @@ export class ContactsSmsComponent implements OnInit {
 		else{
 			let success = phone.dial(number, true)
 		}
-		
+	}
 
+	addContact(){
+		this.routerExtensions.navigateByUrl("add")
 	}
 }

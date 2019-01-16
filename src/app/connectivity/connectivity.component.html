@@ -1,0 +1,14 @@
+<ActionBar class="action-bar" id="action-bar" title="Connectivity">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem class="action-item" icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+</ActionBar>
+<TabView id="tabViewContainer" class="tab-view">
+    <StackLayout *tabItem="{title: 'Bluetooth'}">
+        <BluetoothComponent></BluetoothComponent>>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'NFC'}">
+        <CameraScan></CameraScan>
+    </StackLayout>
+</TabView>
