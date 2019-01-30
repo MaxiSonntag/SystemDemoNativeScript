@@ -19,7 +19,7 @@ export class AddContactComponent implements OnInit {
 
 	contact: MyContact
 	metadata: any
-	@ViewChild("dataForm") dataForm: ElementRef
+	@ViewChild("myDataForm") dataForm: ElementRef
 
 	constructor(private routerExtensions: RouterExtensions) { }
 
@@ -50,15 +50,16 @@ export class AddContactComponent implements OnInit {
 	}
 
 	save(){
+		let form = this.dataForm.nativeElement as RadDataForm
+		form.validateAndCommitAll()
 		let realContact = new contacts.Contact()
-		realContact.name = {given: this.contact.firstName, family: this.contact.lastName}
-		
-		realContact.phoneNumbers = [{label: "Mobile", value: this.contact.number}]
-		
+		realContact.name.given = this.contact.firstName
+		realContact.name.family = this.contact.lastName
+		realContact.phoneNumbers = [{label: contacts.KnownLabel.MOBILE, value: ""+this.contact.number}]
 		if(isAndroid && !permissions.hasPermission(android.Manifest.permission.WRITE_CONTACTS)){
 			permissions.requestPermission(android.Manifest.permission.WRITE_CONTACTS).then(
 				()=>{
-					realContact.save()
+					this.saveAndReturn(realContact)
 				},
 				()=>{
 					this._showPermissionAlert()
@@ -66,9 +67,14 @@ export class AddContactComponent implements OnInit {
 			)
 		}
 		else{
-			realContact.save()
+			this.saveAndReturn(realContact)
 		}
 		
+	}
+
+	private saveAndReturn(contact: contacts.Contact){
+		contact.save()
+		this.routerExtensions.backToPreviousPage()
 	}
 
 	private _showPermissionAlert(){

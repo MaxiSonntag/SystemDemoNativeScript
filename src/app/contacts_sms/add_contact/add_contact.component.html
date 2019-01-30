@@ -4,7 +4,7 @@
     <ActionItem android:visibility="collapsed" class="action-item" ios.position="right" (tap)="save()" text="Save"></ActionItem>
 </ActionBar>
 <GridLayout rows="*, auto" class="page">
-    <RadDataForm row="0" tkExampleTitle [source]="contact" [metadata]="metadata">
+    <RadDataForm row="0" tkExampleTitle [source]="contact" [metadata]="metadata" #myDataForm>
             <!--<TKEntityProperty tkDataFormProperty name="firstName" displayName="First name" index="1" [metadata]="metadata">
                     <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
                     <TKNonEmptyValidator tkEntityPropertyValidators></TKNonEmptyValidator>
@@ -19,7 +19,7 @@
             </TKEntityProperty>-->
     </RadDataForm>
     <GridLayout row="1" rows="*" columns="auto,*">
-        <Button row="0" col="0" ios:colSpan="2" class="btn" (tap)="resetForm()" text="Reset"></Button>
-        <Button row="0" col="1" ios:visibility="collapsed" class="btn" (tap)="save()" text="Save"></Button>
+        <Button row="0" col="0" ios:colSpan="2" class="btn" textWrap="true" (tap)="resetForm()" text="Reset"></Button>
+        <Button row="0" col="1" ios:visibility="collapsed" class="btn" textWrap="true" (tap)="save()" text="Save"></Button>
     </GridLayout>
 </GridLayout>

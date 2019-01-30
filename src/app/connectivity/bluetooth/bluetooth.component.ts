@@ -44,13 +44,7 @@ export class BluetoothComponent implements OnInit, OnDestroy {
 		}
 		
 		this.isScanning = true;
-		if(this.connectedUUID != null){
-			bluetooth.disconnect({UUID: this.connectedUUID}).then(
-				()=>{
-					this.connectedUUID = ""
-				}
-			)
-		}
+		
 		let tempDevices = new Array<bluetooth.Peripheral>()
 		bluetooth.startScanning(
 			{

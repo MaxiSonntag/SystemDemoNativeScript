@@ -7,9 +7,9 @@
 
 <GridLayout rows="auto, *" columns="*" class="page">
     <GridLayout row="0" col="0" rows="*" columns="*,*,*">
-        <Button col="0" class="btn" text="Download" (tap)="downloadJson()" [isEnabled]="downloadButtonEnabled"></Button>
-        <Button col="1" class="btn" text="Parse" (tap)="parseJson()" [isEnabled]="parseButtonEnabled"></Button>
-        <Button col="2" class="btn" text="Post data" (tap)="postData()" [isEnabled]="postButtonEnabled"></Button>
+        <Button col="0" class="btn" textWrap="true" text="Download" (tap)="downloadJson()" [isEnabled]="downloadButtonEnabled"></Button>
+        <Button col="1" class="btn" textWrap="true" text="Parse" (tap)="parseJson()" [isEnabled]="parseButtonEnabled"></Button>
+        <Button col="2" class="btn" textWrap="true" text="Post data" (tap)="postData()" [isEnabled]="postButtonEnabled"></Button>
     </GridLayout>
     <TextView row="1" col="0" #outputText class="outputText" [text]="getCurrentString()" editable="false">
 

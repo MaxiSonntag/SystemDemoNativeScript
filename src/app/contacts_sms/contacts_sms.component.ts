@@ -11,6 +11,7 @@ import { prompt, PromptResult, inputType, PromptOptions } from "tns-core-modules
 import { registerElement } from 'nativescript-angular/element-registry';
 import { RouterExtensions } from 'nativescript-angular/router';
 registerElement('Fab', () => require('nativescript-floatingactionbutton').Fab);
+registerElement("PullToRefresh", () => require("nativescript-pulltorefresh").PullToRefresh);
 
 declare var android: any
 
@@ -39,16 +40,15 @@ export class ContactsSmsComponent implements OnInit {
 	}
 
 	private async loadAllContacts() {
-		let that = this
-		if (isAndroid) {
 
+		if (isAndroid) {
 			permissions.requestPermissions([android.Manifest.permission.READ_CONTACTS, android.Manifest.permission.GET_ACCOUNTS], "We need permissions to show you this feature.").then(
 				() => {
 					console.dir("Contact permissions granted")
 					let fields = ["name", "phoneNumbers"]
 					contacts.getAllContacts(fields).then(
 						(args) => {
-							that.parseContacts(JSON.stringify(args.data))
+							this.parseContacts(JSON.stringify(args.data))
 							this.indicatorVisibility = "collapse"
 						},
 						(err) => {
@@ -63,13 +63,9 @@ export class ContactsSmsComponent implements OnInit {
 		}
 		else {
 			contacts.getContact().then(
-				(args) => {
-					console.dir("SINGLE CONTACT: "+JSON.stringify(args.data))
-					that.parseContacts("["+JSON.stringify(args.data)+"]")
+				(c) => {
+					this.parseContacts(JSON.stringify(c.data))
 					this.indicatorVisibility = "collapse"
-				},
-				(err) => {
-					console.dir("Error fetching contacts:\n" + err)
 				}
 			)
 		}
@@ -79,23 +75,27 @@ export class ContactsSmsComponent implements OnInit {
 	private parseContacts(full: string) {
 		const parsed = JSON.parse(full)
 		let temp = new Array<Contact>()
-		parsed.forEach(contact => {
-			let c = new Contact()
-			c.id = contact["id"]
-			if(isAndroid){
+		if (isAndroid) {
+			parsed.forEach(contact => {
+				let c = new Contact()
+				c.id = contact["id"]
 				c.name.displayname = contact["name"]["displayname"]
-			}
-			else{
-				c.name.displayname = contact["name"]["given"] + " " + contact["name"]["family"]
-			}
-			
-
-			if (contact["phoneNumbers"][0] == undefined) {
+				if (contact["phoneNumbers"][0] == undefined) {
+					return
+				}
+				c.phoneNumbers[0] = { label: contact["phoneNumbers"][0]["label"], value: contact["phoneNumbers"][0]["value"] }
+				temp.push(c)
+			});
+		}
+		else {
+			let c = new Contact()
+			c.name.displayname = parsed["name"]["given"] + " " + parsed["name"]["family"]
+			if (parsed["phoneNumbers"][0] == undefined) {
 				return
 			}
-			c.phoneNumbers[0] = { label: contact["phoneNumbers"][0]["label"], value: contact["phoneNumbers"][0]["value"] }
+			c.phoneNumbers[0] = { label: parsed["phoneNumbers"][0]["label"], value: parsed["phoneNumbers"][0]["value"] }
 			temp.push(c)
-		});
+		}
 
 		temp = this.sortList(temp)
 
@@ -112,6 +112,15 @@ export class ContactsSmsComponent implements OnInit {
 			}
 			return 0
 		})
+	}
+
+	refreshList(args) {
+		let pullRefresh = args.object
+		this.loadAllContacts().then(
+			() => {
+				pullRefresh.refreshing = false;
+			}
+		)
 	}
 
 	contactTapped(args) {
@@ -152,8 +161,8 @@ export class ContactsSmsComponent implements OnInit {
 	}
 
 	private call(number: string) {
-		if(isAndroid){
-			permissions.requestPermission(android.Manifest.permission.CALL_PHONE, "If you want to call directly from the app you have to grant permission.").then(
+		if (isAndroid) {
+			permissions.requestPermission(android.Manifest.permission.CALL_PHONE, "If you want to call directly from the app, you have to grant permission.").then(
 				() => {
 					//Second Parameter: True -> confirmation | False -> instantly
 					let success = phone.dial(number, true)
@@ -164,12 +173,12 @@ export class ContactsSmsComponent implements OnInit {
 				}
 			)
 		}
-		else{
+		else {
 			let success = phone.dial(number, true)
 		}
 	}
 
-	addContact(){
+	addContact() {
 		this.routerExtensions.navigateByUrl("add")
 	}
 }

@@ -20,6 +20,8 @@ import { ContactsSmsComponent } from './contacts_sms/contacts_sms.component'
 import { AddContactComponent } from './contacts_sms/add_contact/add_contact.component'
 import { ConnectivityComponent } from './connectivity/connectivity.component'
 import { BluetoothComponent } from './connectivity/bluetooth/bluetooth.component'
+import { NfcComponent } from './connectivity/nfc/nfc.component'
+import { LocationComponent } from './location/location.component'
 
 import { HttpClientModule } from '@angular/common/http';
 import { BarcodeScanner } from 'nativescript-barcodescanner';
@@ -60,6 +62,8 @@ import { BarcodeScanner } from 'nativescript-barcodescanner';
         AddContactComponent,
         ConnectivityComponent,
         BluetoothComponent,
+        NfcComponent,
+        LocationComponent,
     ],
     providers: [
         BarcodeScanner

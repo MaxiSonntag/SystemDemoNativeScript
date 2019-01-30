@@ -1,0 +1,20 @@
+<ActionBar class="action-bar" id="action-bar" title="Location">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem class="action-item" icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+</ActionBar>
+<GridLayout class="page">
+    <GridLayout rows="auto, auto" columns="*" android:visibility="collapsed">
+        <GridLayout row="0" col="0" rows="*", columns="*,*">
+            <button row="0" col="0" class="btn" text="Start tracking" [isEnabled]="!isTracking" (tap)="startTracking()"></button>
+            <button row="0" col="1" class="btn" text="Stop tracking" [isEnabled]="isTracking" (tap)="stopTracking()"></button>
+        </GridLayout>
+        <StackLayout row="1" col="0">
+            <label class="label body" [text]="outputText" textWrap="true"></label>
+        </StackLayout>
+</GridLayout>
+<StackLayout ios:visibility="collapsed">
+    <label textWrap="true" text="Location services are not available on Android due to an issue. Please use an iOS device to test this feature."  class="label body m-8"></label>
+</StackLayout>
+</GridLayout>

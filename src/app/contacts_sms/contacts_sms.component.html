@@ -9,15 +9,17 @@
 </ActionBar>
 
 <GridLayout class="page">
-    <ActivityIndicator row="0" col="0" busy="true" class="activity-indicator" [visibility]="indicatorVisibility"></ActivityIndicator>
-    <ListView row="0" col="0" [items]="contacts" (itemTap)="contactTapped($event)" class="list-group" [visibility]="indicatorVisibility=='visible' ? 'collapse' : 'visible'">
-    <ng-template let-contact="item">
-        <StackLayout class="list-group-item">
-            <Label [text]="contact.name.displayname" class="list-group-item-heading"></Label>
-            <Label [text]="contact.phoneNumbers[0].label + ': ' + contact.phoneNumbers[0].value" class="list-group-item-text"></Label>
-        </StackLayout>
-    </ng-template>
-</ListView>
+    <ActivityIndicator row="0" col="0" busy="true" class="activity-indicator" [visibility]="indicatorVisibility" class="activity-indicator"></ActivityIndicator>
+    <PullToRefresh (refresh)="refreshList($event)">
+        <ListView row="0" col="0" [items]="contacts" (itemTap)="contactTapped($event)" class="list-group" [visibility]="indicatorVisibility=='visible' ? 'collapse' : 'visible'">
+            <ng-template let-contact="item">
+                <StackLayout class="list-group-item">
+                    <Label [text]="contact.name.displayname" class="list-group-item-heading"></Label>
+                    <Label [text]="contact.phoneNumbers[0].label + ': ' + contact.phoneNumbers[0].value" class="list-group-item-text"></Label>
+                </StackLayout>
+            </ng-template>
+        </ListView>
+    </PullToRefresh>
 <FAB row="0" ios:visibility="collapsed" height="60" width="60" (tap)="addContact()" icon="res://ic_add" backgroundColor="#6aa84f" rippleColor="#f1f1f1" class="fab-button bottom-right m-16"></FAB>
 </GridLayout>
 

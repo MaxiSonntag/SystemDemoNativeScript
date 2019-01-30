@@ -9,7 +9,7 @@
             <StackLayout>
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/network')"
                     [class.active]="isComponentSelected('/network')" (tap)="onNavItemTap('/network')">
-                    <Label class="sidedrawer-list-item-icon fa" col="0" text="&#xf030;"></Label>
+                    <Label class="sidedrawer-list-item-icon fa" col="0" text="&#xf362;"></Label>
                     <Label class="sidedrawer-list-item-text" col="1" text="Networking"></Label>
                 </GridLayout>
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/localNotification')"
@@ -29,7 +29,7 @@
                 </GridLayout>
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/cloud')"
                     [class.active]="isComponentSelected('/cloud')" (tap)="onNavItemTap('/cloud')">
-                    <Label class="sidedrawer-list-item-icon fa" col="0" text="&#xf030;"></Label>
+                    <Label class="sidedrawer-list-item-icon fa" col="0" text="&#xf233;"></Label>
                     <Label class="sidedrawer-list-item-text" col="1" text="Cloud sync"></Label>
                 </GridLayout>
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/camera')"
@@ -39,13 +39,18 @@
                 </GridLayout>
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/contacts')"
                     [class.active]="isComponentSelected('/contacts')" (tap)="onNavItemTap('/contacts')">
-                    <Label class="sidedrawer-list-item-icon fa" col="0" text="&#xf0c0;"></Label>
+                    <Label class="sidedrawer-list-item-icon fa" col="0" text="&#xf2bb;"></Label>
                     <Label class="sidedrawer-list-item-text" col="1" text="Contacts & SMS"></Label>
                 </GridLayout>
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/connectivity')"
                     [class.active]="isComponentSelected('/connectivity')" (tap)="onNavItemTap('/connectivity')">
-                    <Label class="sidedrawer-list-item-icon fa" col="0" text="&#xf519;"></Label>
+                    <Label class="sidedrawer-list-item-icon fab" col="0" text="&#xf293;"></Label>
                     <Label class="sidedrawer-list-item-text" col="1" text="Connectivity"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/location')"
+                    [class.active]="isComponentSelected('/location')" (tap)="onNavItemTap('/location')">
+                    <Label class="sidedrawer-list-item-icon fa" col="0" text="&#xf3c5;"></Label>
+                    <Label class="sidedrawer-list-item-text" col="1" text="Location"></Label>
                 </GridLayout>
             </StackLayout>
         </ScrollView>

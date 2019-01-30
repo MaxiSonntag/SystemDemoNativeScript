@@ -10,6 +10,7 @@ import { CameraComponent } from "./camera/camera.component";
 import { ContactsSmsComponent } from "./contacts_sms/contacts_sms.component"
 import { AddContactComponent } from "./contacts_sms/add_contact/add_contact.component";
 import { ConnectivityComponent } from "./connectivity/connectivity.component";
+import { LocationComponent } from "./location/location.component";
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
     { path: "camera", component: CameraComponent },
     { path: "contacts", component: ContactsSmsComponent },
     { path: "add", component: AddContactComponent },
-    { path: "connectivity", component: ConnectivityComponent }
+    { path: "connectivity", component: ConnectivityComponent },
+    { path: "location", component: LocationComponent }
 ];
 
 @NgModule({
