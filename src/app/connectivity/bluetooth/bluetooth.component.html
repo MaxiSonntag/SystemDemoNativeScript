@@ -1,7 +1,7 @@
 <GridLayout rows="auto, auto, *" columns="*" class="page">
     <GridLayout row="0" col="0" rows="*" columns="*,*">
-        <button row="0" col="0" class="btn" text="Scan" [isEnabled]="!isScanning" (tap)="startScanning()"></button>
-        <button row="0" col="1" class="btn" text="Stop" [isEnabled]="isScanning" (tap)="stopScanning()"></button>
+        <button row="0" col="0" textWrap="true" class="btn" text="Scan" [isEnabled]="!isScanning" (tap)="startScanning()"></button>
+        <button row="0" col="1" textWrap="true" class="btn" text="Stop" [isEnabled]="isScanning" (tap)="stopScanning()"></button>
     </GridLayout>
     <Label row="1" col="0" class="body m-8 p-4 list-heading" text="Found devices:"></Label>
     <ListView row="2" col="0" class="list-group" [items]="foundDevices" [visibility]="isScanning ? 'collapsed' : 'visible'">
@@ -9,7 +9,7 @@
             <GridLayout rows="*,*" columns="*,auto">
                 <label row="0" col="0" class="list-group-item-heading" [text]="foundDevices[index].name != undefined ? foundDevices[index].name : 'No name provided'"></label>
                 <label row="1" col="0" class="list-group-item-text" [text]="foundDevices[index].UUID"></label>
-                <button row="0" col="1" rowSpan="2" class="btn" text="Connect" (tap)="connect(index)"></button>
+                <button row="0" col="1" rowSpan="2" class="btn" textWrap="true" text="Connect" (tap)="connect(index)"></button>
             </GridLayout>
         </ng-template>
     </ListView>

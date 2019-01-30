@@ -22,6 +22,7 @@ export class NfcComponent implements OnInit, OnDestroy {
 	// !! Uncomment everything below and add nativescript_nfc plugin !!
 	// Don't forget to edit .html file too
 	// And AndroidManifest.xml
+	// Guide: https://github.com/EddyVerbruggen/nativescript-nfc
 
 	/*outputText = "No values read yet"
 	nfc: Nfc

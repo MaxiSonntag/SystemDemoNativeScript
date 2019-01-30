@@ -5,8 +5,8 @@
     </ActionItem>
 </ActionBar>
 
-<GridLayout class="page" rows="*,auto,auto,auto,auto,auto,auto,*" columns="*,auto,*">
-    <StackLayout orientation="horizontal" row="0" col="1" width="70%" verticalAlignment="center">
+<GridLayout class="page" rows="auto,auto,auto,auto,auto,auto,auto,*" columns="*,auto,*">
+    <StackLayout orientation="horizontal" row="0" col="1" width="70%" verticalAlignment="center" class="m-t-8">
         <Label text="If using on iOS, be sure to put the app in the background within 5 sec. You won't receive local notifications otherwise." class="label info-label" textWrap="true"></Label>
     </StackLayout>
     <button row="1" col="1" class="btn" text="Send simple notification" (tap)="sendSimpleNotification()"></button>

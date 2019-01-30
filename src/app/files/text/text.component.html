@@ -1,8 +1,8 @@
 <StackLayout class="page">
     <GridLayout rows="auto" columns="*,*,*">
-        <button row="0" col="0" class="btn" text="Load" (tap)="loadFromFile()"></button>
-        <button row="0" col="1" class="btn" text="Write" (tap)="writeToFile()"></button>
-        <button row="0" col="2" class="btn" text="Delete" (tap)="deleteFile()"></button>
+        <button row="0" col="0" class="btn" textWrap="true" text="Load" (tap)="loadFromFile()"></button>
+        <button row="0" col="1" class="btn" textWrap="true" text="Write" (tap)="writeToFile()"></button>
+        <button row="0" col="2" class="btn" textWrap="true" text="Delete" (tap)="deleteFile()"></button>
     </GridLayout>
     <TextField class="input m-8" hint="Enter some text" [(ngModel)]="enteredText"></TextField>
     <label row="0" col="0" class="body m-8" text="File content: "></label>

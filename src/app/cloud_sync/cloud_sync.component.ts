@@ -47,18 +47,6 @@ export class CloudSyncComponent implements OnInit, OnDestroy {
 				})
 			})
 		}
-		else{
-			this.uploadButton.nativeElement.isEnabled = false
-			this.inputText.nativeElement.isEnabled = false
-			let options = {
-				title: "Unavailable on iOS",
-				message: "Sorry, this feature is only available on Android",
-				okButtonText: "Okay"
-			};
-			alert(options)
-		}
-		
-		
 	 }
 
 	onDrawerButtonTap(): void {

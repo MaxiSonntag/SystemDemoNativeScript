@@ -12,8 +12,19 @@ refer to http://docs.nativescript.org/ui/theme.
 @import '~nativescript-theme-core/css/core.light.css';
 @import '~system_app_theme.css';
 
+.far {
+    font-family: Font Awesome 5 Free, fa-regular-400;
+    font-weight: 400; 
+}
+
+.fab {
+    font-family: Font Awesome 5 Brands, fa-brands-400;
+    font-weight: 400; 
+}
+
 .fa {
-    Font-family: Font Awesome 5 Free, fa-solid-900;
+    font-family: Font Awesome 5 Free, fa-solid-900;
+    font-weight: 900; 
 }
 
 .sidedrawer-list-item-text{

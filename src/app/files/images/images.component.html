@@ -1,8 +1,8 @@
 <StackLayout class="page">
         <GridLayout rows="auto" columns="*,*,*">
-            <button row="0" col="0" class="btn" text="Load" (tap)="loadFromFile(false)"></button>
-            <button row="0" col="1" class="btn" text="Write" (tap)="pickImage()"></button>
-            <button row="0" col="2" class="btn" text="Delete" (tap)="deleteFile()"></button>
+            <button row="0" col="0" class="btn" textWrap="true" text="Load" (tap)="loadFromFile(false)"></button>
+            <button row="0" col="1" class="btn" textWrap="true" text="Write" (tap)="pickImage()"></button>
+            <button row="0" col="2" class="btn" textWrap="true" text="Delete" (tap)="deleteFile()"></button>
         </GridLayout>
         <GridLayout class="m-8" rows="auto, *, auto, *" columns="*">
             <label row="0" class="body" text="Picked image: (already saved, click 'Load' to refresh)"></label>
